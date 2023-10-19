@@ -36,7 +36,11 @@ async function handleForm(event) {
         let data 
         if (res.status === 201) {
             data = await res.json()
-            document.getElementById('statusMessages').innerHTML = await `<div class="alert alert-success" role="alert">A simple success alert—check it out!</div>`
+            document.getElementById('statusMessages').innerHTML =`
+            <div class="alert alert-success" role="alert">
+                Snyggt där!<i class="fa-light fa-thumbs-up"></i>
+            </div>`
+            console.log(data)
         }
         else  {
             data = await res.text()
@@ -44,6 +48,7 @@ async function handleForm(event) {
             <div class="alert alert-warning" role="alert">
                 ${data}
             </div>`
+            console.log(data)
         }
 
         

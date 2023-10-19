@@ -15,3 +15,7 @@
   background-color: rgba(223, 72, 72, 0.2549019608);
   border: 1px solid #df4848;
 }
+
+.alert {
+  text-align: center;
+}
