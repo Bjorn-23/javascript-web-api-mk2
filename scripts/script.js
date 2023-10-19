@@ -1,4 +1,4 @@
-function handleForm(event) {
+async function handleForm(event) {
     event.preventDefault()
 
     let errors = []
@@ -25,35 +25,29 @@ function handleForm(event) {
             city: event.target['city'].value,
         })
 
-        fetch('https://win23.azurewebsites.net/api/users', {
+        const res = await fetch('https://win23.azurewebsites.net/api/users', {
             method: "post",
             headers: {
                 "Content-type": "application/json",
             },
             body: json
         })
-        .then(res => {
-            if (res.status === 201) {
-                document.getElementById('statusMessages').innerHTML = `<div class="alert alert-success" role="alert">
-                A simple success alert—check it out!
-              </div>`
-                return res.json()
-            }
-            else {
-                document.getElementById('statusMessages').innerHTML = `<div class="alert alert-warning" role="alert">
-                A simple warning alert—check it out!
-              </div>`
-              return res.text()
-            }
-        })  
-        .then(data => {
-            console.log(data)
-            // localStorage.setItem("user", JSON.stringify(data))
-        })
+
+        let data 
+        if (res.status === 201) {
+            data = await res.json()
+            document.getElementById('statusMessages').innerHTML = await `<div class="alert alert-success" role="alert">A simple success alert—check it out!</div>`
+        }
+        else  {
+            data = await res.text()
+            document.getElementById('statusMessages').innerHTML =`
+            <div class="alert alert-warning" role="alert">
+                ${data}
+            </div>`
+        }
+
         
-
     }
-
 }
 
 function validate(element) {
@@ -109,7 +103,7 @@ const emailValidator = (value) => {
 
 // password validator
 const passwordValidator = (value) => {
-    if (/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{12,}$/.test(value)) {
+    if (/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,}$/.test(value)) {
         return true
     }
     return false
