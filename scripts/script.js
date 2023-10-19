@@ -9,13 +9,35 @@ function handleForm(event) {
         }
     }
 
-    console.log(errors)
+    // console.log(errors)
 
-    if (errors.includes(false)) {
-        console.log("innehåller fel")
-    }
-    else {
+    if (!errors.includes(false)) {
         console.log("skicka iväg informationen")
+
+        const json = JSON.stringify({
+            firstName: event.target['firstName'].value,
+            lastName: event.target['lastName'].value,
+            email: event.target['email'].value,
+            password: event.target['password'].value,
+            confirmPassword: event.target['confirmPassword'].value,
+            streetName: event.target['streetName'].value,
+            postalCode: event.target['postalCode'].value,
+            city: event.target['city'].value,
+        })
+
+        fetch('https://win23.azurewebsites.net/api/users', {
+            method: "post",
+            headers: {
+                "Content-type": "application/json",
+            },
+            body: json
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data)
+            localStorage.setItem("user", JSON.stringify(data))
+        })
+        
 
     }
 
