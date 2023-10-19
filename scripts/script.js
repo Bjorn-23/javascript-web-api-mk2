@@ -32,10 +32,23 @@ function handleForm(event) {
             },
             body: json
         })
-        .then(res => res.json())
+        .then(res => {
+            if (res.status === 201) {
+                document.getElementById('statusMessages').innerHTML = `<div class="alert alert-success" role="alert">
+                A simple success alert—check it out!
+              </div>`
+                return res.json()
+            }
+            else {
+                document.getElementById('statusMessages').innerHTML = `<div class="alert alert-warning" role="alert">
+                A simple warning alert—check it out!
+              </div>`
+              return res.text()
+            }
+        })  
         .then(data => {
             console.log(data)
-            localStorage.setItem("user", JSON.stringify(data))
+            // localStorage.setItem("user", JSON.stringify(data))
         })
         
 
