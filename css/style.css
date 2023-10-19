@@ -1,0 +1,17 @@
+.container form {
+  display: grid;
+}
+.container form div {
+  display: flex;
+  flex-direction: column;
+}
+.container form div span {
+  padding: 5px;
+  font-size: 0.9em;
+  color: #df4848;
+}
+
+.error {
+  background-color: rgba(223, 72, 72, 0.2549019608);
+  border: 1px solid #df4848;
+}

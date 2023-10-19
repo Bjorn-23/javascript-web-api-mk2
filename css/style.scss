@@ -1,0 +1,22 @@
+.container {
+
+    form {
+        display: grid;
+
+        div {
+            display: flex;;
+            flex-direction: column;
+
+            span {
+                padding: 5px;
+                font-size: 0.9em;
+                color: #df4848;
+            }
+        }
+    }
+}
+
+.error {
+    background-color: #df484841;
+    border: 1px solid #df4848;
+}
