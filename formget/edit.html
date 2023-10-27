@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="sv-se">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script defer src="https://kit.fontawesome.com/41c8b474e2.js" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link rel="stylesheet" href="formget.css">
+    <meta name="author" content="Björn Andersson">
+    <title></title>
+</head>
+<body>
+
+    <div class="container mt-5">
+        <div id="profile-result"></div>
+
+        <form onSubmit="handleEdit(event)" novalidate>
+            <div class="mb-3">
+              <input id="id" type="hidden" >
+            </div>
+            <div class="mb-3">
+                <label for="firstName">First Name*</label>
+                <input id="firstName" class="form-control" type="text" required>
+            </div>
+            <div class="mb-3">
+                <label for="lastName">Last Name*</label>
+                <input id="lastName" class="form-control" type="text" required>
+            </div>
+            <div class="mb-3">
+                <label for="email">E-mail*</label>
+                <input id="email" class="form-control" type="email" required>
+            </div>
+            <div class="mb-3 password">
+                <label for="password">Password*</label>
+                <input id="password" class="form-control" type="password" required>
+            </div>
+            <div class="mb-3 confirmPassword">
+                <label for="confirmPassword">Confirm password*</label>
+                <input id="confirmPassword" class="form-control" type="password" required>
+            </div>
+            <div class="mb-3 streetName">
+                <label for="streetName">Street name</label>
+                <input id="streetName" class="form-control" type="text">
+            </div>
+            <div class="mb-3 postalCode">
+                <label for="postalCode">Postal code</label>
+                <input id="postalCode" class="form-control" type="text" >
+            </div>
+            <div class="mb-3 city">
+                <label for="city">City</label>
+                <input id="city" class="form-control" type="text">
+            </div>
+ 
+            <div>
+                <button type="submit" class="btn btn-success">SAVE</button>
+            </div>
+        </form>
+
+
+    </div>
+
+   
+
+    
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>   
+<script src="formget.js"></script>
+<script>
+    displayEditUser()
+</script>
+
+</body>
+</html>
+
+
+    
+    
+</body>
+</html>
